@@ -1,5 +1,8 @@
 """Collection of utilities to do some input file manipulation and output file scraping"""
+from __future__ import print_function, unicode_literals, division
 import re
+
+
 class InputManipulator(object):
     """ Class to modify the input file string passed in.
     """
@@ -186,6 +189,7 @@ class InputManipulator(object):
         elif re.search('\r$', input_file):
             line_ending = '\r'
         return line_ending
+
 
 class RPTOutputReader(object):
     """ Class to read the rtp file output from SWMM and extract the runoff summary information and return that as a JSON
