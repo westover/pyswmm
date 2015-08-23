@@ -1,0 +1,8 @@
+shapely
+ipython
+geojson
+fiona
+# gdal
+flask
+flask-restful
+flask-CORS
