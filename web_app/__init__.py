@@ -111,7 +111,7 @@ api.add_resource(SWMM, '/rest/swmm')
 @app.route('/')
 def index():
     return redirect(url_for('static', filename='index.html'))
-    pass
+
 
 if __name__ == '__main__':
     app.run(debug=True)
