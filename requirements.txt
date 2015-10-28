@@ -6,3 +6,4 @@ fiona
 flask
 flask-restful
 flask-CORS
+jinja2
