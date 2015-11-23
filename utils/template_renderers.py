@@ -1,15 +1,18 @@
 from __future__ import print_function, unicode_literals, division
-
-import jinja2
-from datetime import datetime, timedelta
 import os
+from jinja2 import Environment, PackageLoader
+env = Environment(loader=PackageLoader('pyswmm', os.path.abspath('../templates')))
+from datetime import date, timedelta
 
 SIMPLE_TEMPLATE = {
-    'START_DATE': datetime(2013, 5, 10),
-    'END_DATE': datetime(2013, 6, 24),
+    'FLOW_UNITS': 'CFS',
+    'START_DATE': date(2013, 5, 10),
+    'END_DATE': date(2013, 6, 24),
     'WET_STEP': timedelta(minutes=30),
     'DRY_STEP': timedelta(minutes=60),
     'ROUTING_STEP': timedelta(seconds=30),
+    'SUBCATCHMENTS': [],
+    'RAIN GAUGES': []
 }
 
 
@@ -20,7 +23,7 @@ def simple_template_render(**kwargs):
     :return:
     """
     options = SIMPLE_TEMPLATE.update(kwargs)
-    template_file = os.path.abspath('../templates/swmm_simple.inp.j2')
+    template_file = 'swmm_simple.inp.j2'
     rendered_file = render_template(template_file, options)
     return rendered_file
 
@@ -33,5 +36,4 @@ def render_template(template_file, options):
     :return:
     """
 
-    rendered_file = ""
-    return rendered_file
+    return env.get_template(template_file).render(**options)
