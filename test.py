@@ -1,17 +1,16 @@
-
+from __future__ import print_function, unicode_literals
 import os
 import sys
 
-#point to location of the pyswmm file
-sys.path.append(os.getcwd()+'\\pyswmm\\')
+sys.path.append(os.path.abspath('.'))
 
-from swmm5 import pyswmm
+from pyswmm.swmm5 import pyswmm
 
 
 # this checks the swmmExec process train...
 
-swmmobject = pyswmm('./example/parkinglot.inp',\
-                    './example/parkinglot.rpt',\
+swmmobject = pyswmm('./example/parkinglot.inp',
+                    './example/parkinglot.rpt',
                     './example/parkinglot.out')
 
 swmmobject.swmmExec()
