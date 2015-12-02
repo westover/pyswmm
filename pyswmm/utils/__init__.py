@@ -19,3 +19,11 @@ set_LID_usage = InputManipulator().set_LID_usage
 # Output file manipulation
 extract_subcatchment_summary_data = RPTOutputReader().extract_subcatchment_summary_data
 
+
+def calculate_area_from_polygon(polygon):
+    pass
+
+
+def find_longest_segment_of_polygon(polygon):
+    pass
+

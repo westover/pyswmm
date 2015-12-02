@@ -1,11 +1,13 @@
+import sys
+
+import os
 from flask import Flask, redirect, url_for
 from flask import request
-from flask.ext.restful import Resource, Api, reqparse
 from flask.ext.cors import CORS
-import os
-import sys
+from flask.ext.restful import Resource, Api, reqparse
+
 sys.path.insert(0, os.path.abspath('..'))
-from utils import RPTOutputReader
+from pyswmm.utils import RPTOutputReader
 from pyswmm.swmm5 import pyswmm
 import traceback
 import threading
